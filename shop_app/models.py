@@ -4,9 +4,9 @@ from django.db.models import TextChoices
 
 class CategoryChoice(TextChoices):
     OTHER = 'other', 'Разное'
-    SMARTPHOHE = 'smartphone', 'Смартфоны'
-    LAPTOP = 'laptop', 'Ноутбуки'
-    REFRIGERATOR = 'refrigerator', 'Холодильники'
+    SMARTPHOHE = 'smartphones', 'Смартфоны'
+    LAPTOP = 'laptops', 'Ноутбуки'
+    REFRIGERATOR = 'refrigerators', 'Холодильники'
     TV = 'TV', 'Телевизоры'
 
 
