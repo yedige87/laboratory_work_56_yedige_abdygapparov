@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+    <title>{% block title %}Products{% endblock %}</title>
+</head>
+<body>
+<div class="container">
+    <nav class="navbar">
+        <a class="shop-title" href="/">Yedige, Inc.</a>
+        {% for choice in choices %}
+            <a href="{% url 'category_view' choice.0 %}">{{ choice.1 }}</a>
+        {% endfor %}
+        <div class="menu">
+            <a class="menu-item" href="{% url 'index' %}">Products</a>
+            <a href="{% url 'product_add' %}">Add Product</a>
+            {% block menu %}{% endblock %}
+        </div>
+
+    </nav>
+    <div class="content-block">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</div>
+
+</html>
