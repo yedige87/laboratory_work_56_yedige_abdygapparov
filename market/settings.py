@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'market.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': BASE_DIR / 'lab56',
+        'NAME': 'lab56',
         'USER': 'postgres',
         'PASSWORD': 'postgres',
         'HOST': 'localhost',
