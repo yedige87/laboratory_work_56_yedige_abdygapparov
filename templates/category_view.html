@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load l10n %}
+{% block title %}Category{% endblock %}
+{% block menu %}
+
+{% endblock %}
+{% block content %}
+
+<h1>Категория: {{category_name}}</h1>
+<div class="content">
+    <div class="product-list">
+        {% if products %}
+        {% for p in products %}
+        <div class="product-item">
+            <img class="product-img" src="/static/images/{{ p.photo }}">
+            <div class="product-desc">
+                <p class="product-title">{{ p.title }}</p>
+                {% for choice in choices %}
+                    {% if choice.0 == category_name %}
+                        <p class="product-category">{{ choice.1 }}</p>
+                    {% endif %}
+                {% endfor %}
+                <p class="product-price">{{ p.price|localize }} KZT</p>
+                <p><a href="{% url 'product_view' p.id %}">see more >>></a></p>
+            </div>
+        </div>
+        {% endfor %}
+        {% else %}
+        <p>Товары данной категории отсутствуют</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

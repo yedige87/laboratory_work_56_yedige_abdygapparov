@@ -78,3 +78,11 @@ def product_edit_view(request: WSGIRequest, pk):
 
         product.save()
         return redirect('index')
+
+
+def category_view(request: WSGIRequest, cat_id):
+    products = Product.objects.filter(category=cat_id)
+    context = {
+        'products': products, 'choices': CategoryChoice.choices, 'category_name': cat_id
+    }
+    return render(request, 'category_view.html', context=context)
